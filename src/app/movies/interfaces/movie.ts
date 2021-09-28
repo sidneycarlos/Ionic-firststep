@@ -1,12 +1,5 @@
-import { Actor } from "./actor";
+import { Items } from "./items"
 
 export interface Movie {
-    id: string
-    title: string
-    year: number
-    image: string
-    description: string
-    actors: Actor[]
+    items: Items[]
 }
-
-

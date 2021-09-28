@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Items } from '../interfaces/item';
+import { Items } from '../interfaces/items';
 import { Movie } from '../interfaces/movie';
 import { ImdbService } from '../services/imdb.service';
 
@@ -10,18 +10,15 @@ import { ImdbService } from '../services/imdb.service';
 })
 export class MovieslistComponent implements OnInit {
   
-  protected movies: Movie[]
+  movies: Items[]
 
-constructor(private imdb: ImdbService) { }
+constructor(private service: ImdbService) { }
 
   ngOnInit() {
-    this.imdb.getMovies()
-    .then((data: Items) => this.movies = data.items)
+    this.service.getMovies()
+    .then((data: Movie) => this.movies = data.items)
     .then(data => console.log(data))
   }
-
-
-
 }
   // {
   //   id: 'string',
