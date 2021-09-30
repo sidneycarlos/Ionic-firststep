@@ -1,6 +1,8 @@
-<ion-list>
-  <ion-list-header>
-    Movies
-  </ion-list-header>
-  <app-card *ngFor="let movie of movies" [movie]="movie"></app-card>
-</ion-list>
+<ion-item-divider>
+  <ion-list>
+    <ion-list-header>
+      Movies
+    </ion-list-header>
+    <app-card *ngFor="let movie of movies" [movie]="movie"></app-card>
+  </ion-list>
+</ion-item-divider>
