@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Items } from '../interfaces/items';
+import { Movie } from '../interfaces/movie';
+import { ImdbService } from '../services/imdb.service';
 
 @Component({
   selector: 'app-card',
@@ -7,10 +8,14 @@ import { Items } from '../interfaces/items';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-  @Input() movie: Items
+  @Input() movie: Movie
   
-  constructor() { }
+  constructor(private service: ImdbService) { }
 
   ngOnInit() {}
+
+  deleteMovie(title: string){
+    return this.service.deleteMovie(title)
+  }
 
 }

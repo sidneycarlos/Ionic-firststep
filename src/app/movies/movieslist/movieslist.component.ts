@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Items } from '../interfaces/items';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Movie } from '../interfaces/movie';
 import { ImdbService } from '../services/imdb.service';
 
@@ -8,27 +8,27 @@ import { ImdbService } from '../services/imdb.service';
   templateUrl: './movieslist.component.html',
   styleUrls: ['./movieslist.component.scss'],
 })
-export class MovieslistComponent implements OnInit {
+export class MovieslistComponent implements OnInit, OnDestroy{
   
-  movies: Items[]
+  private sub$: Subscription
+  protected movies: Movie[]
 
 constructor(private service: ImdbService) { }
 
-  ngOnInit() {
+  ngOnInit() : void
+  {
     this.service.getMovies()
-    .then((data: Movie) => this.movies = data.items)
-    .then(data => console.log(data))
+    this.sub$ = this.service.getObservable()
+    .subscribe((data: Movie[])=> this.movies = data)
+    
   }
-}
-  // {
-  //   id: 'string',
-  //   title: 'string',
-  //   year: 'number',
-  //   image: 'string',
-  //   description: 'string',
-  //   actors: []
-  // }
 
+  ngOnDestroy() : void
+  {
+    this.sub$.unsubscribe()
+  }
+
+}
 
   
 

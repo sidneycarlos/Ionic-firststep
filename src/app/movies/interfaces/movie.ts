@@ -1,5 +1,9 @@
-import { Items } from "./items"
-
 export interface Movie {
-    items: Items[]
+    title: string
+    year: number
+    image: string
+    fullTitle: string
 }
+
+
+

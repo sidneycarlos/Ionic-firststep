@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ImdbService } from '../services/imdb.service';
 
 @Component({
   selector: 'app-moviedetails',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviedetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: ImdbService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  
+    
+  }
 
 }
