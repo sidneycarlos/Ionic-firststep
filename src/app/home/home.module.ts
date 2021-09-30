@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { MoviesModule } from '../movies/movies.module';
-import { MovieslistComponent } from '../movies/movieslist/movieslist.component';
+// import { MoviesModule } from '../movies/movies.module';
+// import { MovieslistComponent } from '../movies/movieslist/movieslist.component';
 
 
 @NgModule({
@@ -14,9 +14,9 @@ import { MovieslistComponent } from '../movies/movieslist/movieslist.component';
     CommonModule,
     FormsModule,
     IonicModule,
-    MoviesModule,
+    //MoviesModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, MovieslistComponent]
+  declarations: [HomePage]//, MovieslistComponent]
 })
 export class HomePageModule {}
