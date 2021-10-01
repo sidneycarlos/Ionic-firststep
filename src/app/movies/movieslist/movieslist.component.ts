@@ -11,7 +11,7 @@ import { ImdbService } from '../services/imdb.service';
 export class MovieslistComponent implements OnInit, OnDestroy{
   
   private sub$: Subscription
-  protected movies: Movie[]
+  public movies: Movie[]
 
 constructor(private service: ImdbService) { }
 
